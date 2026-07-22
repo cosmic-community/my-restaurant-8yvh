@@ -1,5 +1,7 @@
-import { createBucketClient } from '@cosmicjs/sdk'
+import { createBucketClient, markdownToHtml } from '@cosmicjs/sdk'
 import type { MenuCategory, MenuItem, Location, CustomerReview, Page } from '@/types'
+
+export { markdownToHtml }
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.COSMIC_BUCKET_SLUG as string,

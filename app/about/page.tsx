@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getPageBySlug, getMetafieldValue } from '@/lib/cosmic'
-import Markdown from 'react-markdown'
+import { getPageBySlug, getMetafieldValue, markdownToHtml } from '@/lib/cosmic'
 
 export const metadata = {
   title: 'About | My Restaurant',
@@ -18,7 +17,8 @@ export default async function AboutPage() {
   const eyebrow = getMetafieldValue(page.metadata?.eyebrow)
   const heading = getMetafieldValue(page.metadata?.heading) || page.title
   const subheading = getMetafieldValue(page.metadata?.subheading)
-  const body = getMetafieldValue(page.metadata?.body)
+  const bodyMarkdown = getMetafieldValue(page.metadata?.body)
+  const bodyHtml = markdownToHtml(bodyMarkdown)
   const ctaLabel = getMetafieldValue(page.metadata?.cta_label)
   const ctaLink = getMetafieldValue(page.metadata?.cta_link)
   const heroImage = page.metadata?.hero_image?.imgix_url
@@ -52,9 +52,10 @@ export default async function AboutPage() {
 
       {/* Body */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-        <article className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-charcoal prose-p:text-charcoal/80 prose-li:text-charcoal/80 prose-strong:text-charcoal">
-          <Markdown>{body}</Markdown>
-        </article>
+        <article
+          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-charcoal prose-p:text-charcoal/80 prose-li:text-charcoal/80 prose-strong:text-charcoal"
+          dangerouslySetInnerHTML={{ __html: bodyHtml }}
+        />
 
         {ctaLabel && ctaLink && (
           <div className="mt-12 text-center">
