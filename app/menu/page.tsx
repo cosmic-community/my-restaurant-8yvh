@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { getMenuCategories, getMenuItems } from '@/lib/cosmic'
 import MenuSection from '@/components/MenuSection'
 import MenuItemCard from '@/components/MenuItemCard'

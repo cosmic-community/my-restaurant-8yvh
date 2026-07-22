@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { getLocations } from '@/lib/cosmic'
 import LocationCard from '@/components/LocationCard'
 
