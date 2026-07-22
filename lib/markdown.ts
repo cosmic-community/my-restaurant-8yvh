@@ -93,8 +93,10 @@ export function markdownToHtml(markdown: string): string {
     if (heading) {
       closeLists();
       closeBlockquote();
-      const level = heading[1].length;
-      const text = renderInline(heading[2]);
+      const hashes = heading[1] ?? '';
+      const headingText = heading[2] ?? '';
+      const level = Math.min(Math.max(hashes.length, 1), 6);
+      const text = renderInline(headingText);
       const sizes: Record<number, string> = {
         1: 'text-3xl md:text-4xl font-bold mt-8 mb-4 text-[#1a1614]',
         2: 'text-2xl md:text-3xl font-bold mt-8 mb-4 text-[#1a1614]',
@@ -103,7 +105,8 @@ export function markdownToHtml(markdown: string): string {
         5: 'text-base font-semibold mt-4 mb-2 text-[#1a1614]',
         6: 'text-sm font-semibold mt-4 mb-2 text-[#1a1614]',
       };
-      html.push(`<h${level} class="${sizes[level]}">${text}</h${level}>`);
+      const sizeClass = sizes[level] ?? sizes[2];
+      html.push(`<h${level} class="${sizeClass}">${text}</h${level}>`);
       continue;
     }
 
