@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { getCustomerReviews } from '@/lib/cosmic'
 import ReviewCard from '@/components/ReviewCard'
 

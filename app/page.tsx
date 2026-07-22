@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import Link from 'next/link'
 import { getMenuCategories, getMenuItems, getCustomerReviews, getMetafieldValue } from '@/lib/cosmic'
 import Hero from '@/components/Hero'
