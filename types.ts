@@ -63,6 +63,22 @@ export interface CustomerReview extends CosmicObject {
   };
 }
 
+export interface Page extends CosmicObject {
+  type: 'pages';
+  metadata: {
+    eyebrow?: string;
+    heading?: string;
+    subheading?: string;
+    hero_image?: {
+      url: string;
+      imgix_url: string;
+    };
+    body?: string;
+    cta_label?: string;
+    cta_link?: string;
+  };
+}
+
 export interface CosmicResponse<T> {
   objects: T[];
   total: number;
