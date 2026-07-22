@@ -10,6 +10,7 @@ export default function Header() {
         </Link>
         <nav className="hidden sm:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
           <Link href="/menu" className="hover:text-gold transition-colors">Menu</Link>
+          <Link href="/about" className="hover:text-gold transition-colors">About</Link>
           <Link href="/locations" className="hover:text-gold transition-colors">Locations</Link>
           <Link href="/reviews" className="hover:text-gold transition-colors">Reviews</Link>
         </nav>

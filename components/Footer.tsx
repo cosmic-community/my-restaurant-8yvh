@@ -17,6 +17,7 @@ export default function Footer() {
           <h4 className="font-serif text-lg text-cream mb-3">Explore</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/menu" className="hover:text-gold transition-colors">Menu</Link></li>
+            <li><Link href="/about" className="hover:text-gold transition-colors">About</Link></li>
             <li><Link href="/locations" className="hover:text-gold transition-colors">Locations</Link></li>
             <li><Link href="/reviews" className="hover:text-gold transition-colors">Reviews</Link></li>
           </ul>
